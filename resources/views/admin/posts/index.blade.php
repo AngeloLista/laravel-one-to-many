@@ -24,8 +24,16 @@
 
                 <tr>
                     <th scope="row">{{ $post->id }}</th>
+                    {{-- Title --}}
                     <td>{{ $post->title }}</td>
-                    <td>@if($post->category){{ $post->category->label }}@else - @endif</td>
+                    {{-- Category --}}
+                    <td>
+                      @if($post->category)
+                      <span class="badge badge-pill badge-{{$post->category->color}}">{{ $post->category->label }}</span>
+                      @else - 
+                      @endif
+                    </td>
+                    {{-- Created At --}}
                     <td>{{ $post->created_at }}</td>
                     <td class="d-flex justify-content-center align-items-center">
                       {{-- Details --}}
