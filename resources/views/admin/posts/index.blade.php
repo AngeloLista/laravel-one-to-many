@@ -25,7 +25,7 @@
                 <tr>
                     <th scope="row">{{ $post->id }}</th>
                     <td>{{ $post->title }}</td>
-                    <td>{{ $post->category->label }}</td>
+                    <td>@if($post->category){{ $post->category->label }}@else - @endif</td>
                     <td>{{ $post->created_at }}</td>
                     <td class="d-flex justify-content-center align-items-center">
                       {{-- Details --}}
