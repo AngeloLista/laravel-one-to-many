@@ -3,12 +3,20 @@
 @section('content')
     <section id="post-show" class="container d-flex justify-content-center align-items-center">
         <div class="content row w-75">
+            {{-- Title --}}
             <div class="col-12 mb-3">
                 <h1>{{ $post->title }}</h1>
             </div>
+            {{-- Content --}}
             <div class="col-10 mb-3">{{ $post->content }}</div>
+            {{-- Image --}}
             <div class="col-2 mb-3"><img class="img-fluid" src="{{ $post->image }}" alt="{{ $post->slug }}"></div>
-            <address class="col-12">Category: {{ $post->category->label }}</address>
+            {{-- Category --}}
+            <address class="col-12">
+                @if($post->category)
+                <span class="badge badge-pill badge-{{$post->category->color}}">{{ $post->category->label }}</span>
+                @else - 
+                @endif</address>
             <div class="col-12 d-flex justify-content-end">
                 {{-- Edit --}}
                 <a class="btn btn-primary mr-1" href="{{ route('admin.posts.edit', $post) }}">Edit</a>
