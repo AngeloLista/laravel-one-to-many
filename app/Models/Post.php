@@ -12,4 +12,8 @@ class Post extends Model
         'image',
         'slug'
     ];
+
+    public function category(){
+        return $this->belongTo('App\Models\Category');
+    }
 }
