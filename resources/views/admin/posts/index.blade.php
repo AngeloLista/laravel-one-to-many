@@ -35,7 +35,7 @@
                     </td>
                     {{-- Created At --}}
                     <td>{{ $post->created_at }}</td>
-                    <td class="d-flex justify-content-center align-items-center">
+                    <td class="d-flex justify-content-end align-items-center">
                       {{-- Details --}}
                       <a class="btn btn-secondary mr-1" href="{{ route('admin.posts.show', $post->id) }}">Details</a>
                       {{-- Edit --}}

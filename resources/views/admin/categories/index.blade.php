@@ -30,7 +30,7 @@
                     <td><span class="badge badge-pill badge-{{$category->color}}">{{ $category->color }}</span></td>
                     {{-- Created At --}}
                     <td>{{ $category->created_at }}</td>
-                    <td class="d-flex justify-content-center align-items-center">
+                    <td class="d-flex justify-content-end align-items-center">
                       {{-- Details --}}
                       <a class="btn btn-secondary mr-1" href="{{ route('admin.categories.show', $category->id) }}">Details</a>
                       {{-- Edit --}}
