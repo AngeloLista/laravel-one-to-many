@@ -16,22 +16,22 @@
 @endif
     @csrf
         <div class="row">
-
+            {{-- Title --}}
             <div class="col-8 mb-3 form-group">
                 <label for="title">Title: </label>
                 <input class="form-control" type="text" name="title" id="title" value="{{ old('title', $post->title) }}">
             </div>
+            {{-- Categories Select --}}
             <div class="col-4 mb-3 form-group">
                 <label for="category">Category: </label>
                 <select class="form-control" id="category_id" name="category_id">
                     <option value="">No Category</option>
                     @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->label }}</option>
+                    <option @if(old('category_id', $post->category_id) == $category->id) selected @endif value="{{ $category->id }}">{{ $category->label }}</option>
                     @endforeach
-                    
                 </select>
             </div>
-            
+            {{-- Content --}}
             <div class="col-12 mb-3 form-group">
                 <div class="label">Content: </div>
                 <textarea class="form-control" type="text"
