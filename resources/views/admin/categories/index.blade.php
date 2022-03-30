@@ -26,7 +26,7 @@
                     {{-- Label --}}
                     <td>{{ $category->label }}</td>
                     {{-- Color --}}
-                    <td>{{ $category->color }}</td>
+                    <td><span class="badge badge-pill badge-{{$category->color}}">{{ $category->color }}</span></td>
                     {{-- Created At --}}
                     <td>{{ $category->created_at }}</td>
                     <td class="d-flex justify-content-center align-items-center">
