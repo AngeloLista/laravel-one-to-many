@@ -33,7 +33,7 @@
                 <select class="form-control @error('color') is-invalid @enderror" id="color" name="color">
                     <option value="">No Color</option>
                     @foreach($categories as $c)
-                    <option @if(old('color', $c->color) === $category->color ) selected @endif value="{{ $c->color }}">{{ $c->color }}</option>
+                    <option @if(old('color', $category->color) === $c->color ) selected @endif value="{{ $c->color }}">{{ $c->color }}</option>
                     @endforeach
                 </select>
                 {{-- Display error --}}
