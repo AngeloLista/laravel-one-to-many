@@ -23,9 +23,10 @@ Route::middleware('auth')
     Route::get('/', 'HomeController@index')->name('home');
     
     Route::resource('posts', 'PostController');
+    Route::resource('categories', 'CategoryController');
+    
+    Route::get('/{any}', function () {
+        abort(404);
+    })->where('any', '.*');
 });
 
-
-Route::get('{any?}', function () {
-    return view('guest.home');
-})->where('any', '.*');
