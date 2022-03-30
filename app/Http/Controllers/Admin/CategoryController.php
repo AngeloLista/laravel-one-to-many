@@ -47,7 +47,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'label' => 'required|string|unique:categories',
-            'color' => 'required|string'
+            'color' => 'required|string|exists:categories,color',
         ]);
 
         $data = $request->all();
@@ -94,7 +94,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'label' => ['required','string', Rule::unique('categories')->ignore($category->id)],
-            'color' => 'required|string'
+            'color' => 'required|string|exists:categories,color'
         ]);
 
         $data = $request->all();
