@@ -21,6 +21,7 @@ Route::middleware('auth')
 ->namespace('Admin')
 ->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/posts/by_category', 'PostsByCategoryController@index')->name('posts.by_category');
     
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
