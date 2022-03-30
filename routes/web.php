@@ -31,3 +31,7 @@ Route::middleware('auth')
     })->where('any', '.*');
 });
 
+// VueJS Routes
+Route::get('{any?}', function () {
+    return view('guest.home');
+})->where('any', '.*');
