@@ -4,8 +4,11 @@
     <div class="container">
         <header class="d-flex justify-content-between align-items-center">
             <h1>I miei post</h1>
-            {{-- Create --}}
-            <a class="btn btn-warning mr-1" href="{{ route('admin.posts.create') }}">Create</a>
+            <div>
+              <a class="btn btn-dark mr-1"href="{{ route('admin.posts.by_category') }}">Posts by Category</a>
+              {{-- Create --}}
+              <a class="btn btn-warning mr-1" href="{{ route('admin.posts.create') }}">Create</a>
+            </div>
         </header>
 
         <table class="table">
