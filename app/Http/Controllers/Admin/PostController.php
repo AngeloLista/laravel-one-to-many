@@ -90,11 +90,12 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
     {
+
         $request->validate([
             'title' => ['required', 'string', Rule::unique('posts')->ignore($post->id), 'max:50'],
             'content' => 'required|string',
@@ -104,8 +105,8 @@ class PostController extends Controller
 
         $data = $request->all();
 
-        $post->fill($data);
         $data['slug'] = Str::slug($request->title, '-');
+        $post->fill($data);
 
         $post->save();
 
