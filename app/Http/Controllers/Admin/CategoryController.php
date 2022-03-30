@@ -32,8 +32,9 @@ class CategoryController extends Controller
     public function create()
     {
         $category = new Category();
+        $categories = Category::all();
 
-        return view('admin.categories.create', compact('category'));
+        return view('admin.categories.create', compact('category', 'categories'));
     }
 
     /**
@@ -77,7 +78,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        $categories = Category::all();
+
+        return view('admin.categories.edit', compact('category', 'categories'));
     }
 
     /**
@@ -90,7 +93,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'label' => ['required','string', Rule::unique()->ignore($category->id)],
+            'label' => ['required','string', Rule::unique('categories')->ignore($category->id)],
             'color' => 'required|string'
         ]);
 
